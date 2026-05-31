@@ -1,7 +1,6 @@
-//your JS code here. If required.
-const form = document.getElementById("form");
+const btn = document.getElementById("btn");
 
-form.addEventListener("submit", function (e) {
+btn.addEventListener("click", function (e) {
     e.preventDefault();
 
     const age = document.getElementById("age").value;
@@ -12,7 +11,7 @@ form.addEventListener("submit", function (e) {
         return;
     }
 
-    const votingPromise = new Promise((resolve, reject) => {
+    const promise = new Promise((resolve, reject) => {
         setTimeout(() => {
             if (Number(age) > 18) {
                 resolve(`Welcome, ${name}. You can vote.`);
@@ -22,11 +21,7 @@ form.addEventListener("submit", function (e) {
         }, 4000);
     });
 
-    votingPromise
-        .then((message) => {
-            alert(message);
-        })
-        .catch((message) => {
-            alert(message);
-        });
+    promise
+        .then((message) => alert(message))
+        .catch((message) => alert(message));
 });
